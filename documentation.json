@@ -1,0 +1,129 @@
+{
+  "name": "CASSIE MARIE | AUTHOR",
+  "initialRoute": "introduction",
+  "colors": {
+    "light": {
+      "brand": "#0969DA",
+      "heading": "undefined",
+      "text": "undefined"
+    },
+    "dark": {
+      "brand": "#589FF3",
+      "heading": "undefined",
+      "text": "undefined"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "home"
+              },
+              {
+                "title": "Quickstart",
+                "path": "quickstart",
+                "icon": "zap"
+              }
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "icon": "file-text",
+            "pages": [
+              {
+                "title": "Features",
+                "path": "features",
+                "icon": "list"
+              }
+            ]
+          },
+          {
+            "group": "Advanced",
+            "icon": "layers",
+            "pages": [
+              {
+                "title": "Integrations",
+                "path": "integrations",
+                "icon": "link"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Help Center",
+        "icon": "help-circle",
+        "pages": [
+          {
+            "title": "Help Center",
+            "path": "help-center",
+            "icon": "home"
+          },
+          {
+            "group": "FAQs",
+            "icon": "help-circle",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "How to Format Manuscript",
+                "path": "help-center/faq/how-to-format-manuscript"
+              }
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "icon": "alert-triangle",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Upload Errors",
+                "path": "help-center/troubleshooting/upload-errors"
+              }
+            ]
+          },
+          {
+            "group": "Guides",
+            "icon": "book-open",
+            "expandable": false,
+            "pages": [
+              {
+                "title": "Create Author Bio",
+                "path": "help-center/guides/create-author-bio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}

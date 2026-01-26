@@ -1,0 +1,176 @@
+---
+title: Integrations and Extensions
+description: Connect CASSIE MARIE | AUTHOR with third-party tools to enhance your documentation workflow. Learn about webhooks, API access, and popular integrations.
+---
+
+## Overview
+
+Integrate CASSIE MARIE | AUTHOR with your favorite tools to automate workflows, sync content, and extend functionality. Use webhooks for real-time updates, connect to GitHub for seamless repo synchronization, or link with third-party apps like Zapier and Slack.
+
+<Callout kind="tip">
+Start with GitHub integration for automatic documentation updates from your repository.
+</Callout>
+
+## Popular Integrations
+
+Discover ready-to-use connections that streamline your documentation process.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="#github-integration">
+    Sync repository changes directly to your docs site.
+  </Card>
+  <Card title="Zapier" icon="zap" href="#third-party-apps">
+    Automate workflows with 5,000+ apps.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="#webhooks">
+    Get instant notifications on doc updates.
+  </Card>
+</Columns>
+
+## GitHub Integration
+
+Set up GitHub to automatically deploy documentation updates from your repository.
+
+<Steps>
+  <Step title="Create a Webhook" icon="hook">
+    In your GitHub repo settings, navigate to Webhooks > Add webhook.
+    
+    Set the Payload URL to `https://api.example.com/webhooks/github`.
+    
+    Choose Content type: `application/json`.
+  </Step>
+  <Step title="Configure Events" icon="settings">
+    Select events like "Pushes" and "Pull requests".
+    
+    Add a secret: `YOUR_WEBHOOK_SECRET`.
+  </Step>
+  <Step title="Test the Webhook" icon="play">
+    Make a commit to your repo and verify the delivery in GitHub.
+  </Step>
+</Steps>
+
+## Using Webhooks for Updates
+
+Webhooks notify your systems of events like page updates or new versions. Configure them via the dashboard.
+
+<Tabs>
+  <Tab title="Payload Example" icon="code">
+    ```json
+    {
+      "event": "page.updated",
+      "data": {
+        "path": "/introduction",
+        "timestamp": "2024-10-15T10:30:00Z"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="cURL Test" icon="terminal">
+````bash
+curl -X POST https://api.example.com/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event": "test",
+    "payload": {}
+  }'
+````
+  </Tab>
+</Tabs>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+const response = await fetch('https://api.example.com/webhooks', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    event: 'doc.updated',
+    path: '/integrations'
+  })
+});
+```
+```python
+import requests
+
+response = requests.post(
+  'https://api.example.com/webhooks',
+  headers={
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  json={
+    'event': 'doc.updated',
+    'path': '/integrations'
+  }
+)
+```
+</CodeGroup>
+
+<Callout kind="alert">
+Always use HTTPS for webhook endpoints and validate signatures with `YOUR_WEBHOOK_SECRET` to prevent unauthorized access.
+</Callout>
+
+## Third-Party App Connections
+
+Connect with no-code tools for advanced automation.
+
+<Tabs>
+  <Tab title="Zapier" icon="zap">
+    1. Log in to Zapier and create a new Zap.
+    2. Choose CASSIE MARIE | AUTHOR as the trigger app.
+    3. Select "New Page Update" trigger.
+    4. Connect your account using `YOUR_API_KEY`.
+    
+    <Expandable title="Advanced Filters" default-open="false">
+      Filter actions by path patterns like `/api/*`.
+    </Expandable>
+  </Tab>
+  <Tab title="Export to PDF" icon="file-text">
+    Use the API to generate exports:
+    
+````javascript
+<Request show-lines="true">
+```javascript
+const fs = require('fs');
+const response = await fetch('https://api.example.com/export/pdf?path=/introduction', {
+  headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+});
+const buffer = await response.arrayBuffer();
+fs.writeFileSync('docs.pdf', Buffer.from(buffer));
+```
+</Request>
+````
+  </Tab>
+</Tabs>
+
+## Exporting Documentation
+
+Export your docs to various formats for sharing or archiving.
+
+| Format | Endpoint | Parameters |
+|--------|----------|------------|
+| PDF | `/export/pdf` | `path`, `theme` |
+| HTML | `/export/html` | `path`, `includeNav` |
+| Markdown | `/export/md` | `path`, `recursive` |
+
+<ParamField path="path" param-type="string" required="true">
+  The documentation path to export, e.g., `/introduction`.
+</ParamField>
+
+<ParamField query="theme" param-type="string" required="false">
+  Optional theme: `light` or `dark`.
+</ParamField>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="API Reference" icon="book-open" href="/authentication">
+    Dive into full API endpoints and authentication.
+  </Card>
+  <Card title="Custom Webhooks" icon="code" href="#webhooks">
+    Explore advanced webhook configurations.
+  </Card>
+</Columns>

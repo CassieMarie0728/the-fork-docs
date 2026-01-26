@@ -1,0 +1,148 @@
+---
+title: Changelog
+description: Track the latest updates, new features, and improvements in CASSIE MARIE | AUTHOR. Review version history for the past releases.
+---
+
+## Recent Updates
+
+<Callout kind="info">
+Stay updated with the latest releases by starring the repository on GitHub and enabling notifications.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for multi-session workflows, allowing you to maintain parallel conversations without history interference
+- Introduced customizable session themes for personalized experiences
+
+## Improvements
+
+- Enhanced performance for session initialization, reducing load time by 40%
+- Better error handling for network interruptions during active sessions
+
+## Bug Fixes
+
+- Fixed issue where session data could persist across resets
+- Resolved UI glitches on mobile devices during theme switches
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Voice input support for hands-free session interactions
+- Export session transcripts as PDF or Markdown
+
+## Bug Fixes
+
+- Corrected authentication token refresh logic to prevent unexpected logouts
+- Patched security vulnerability in session ID generation
+
+## Improvements
+
+- Optimized database queries for faster response times under high load
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core session engine with no-history mode enabled by default
+- Basic authentication via `https://auth.example.com`
+- Dashboard at `https://dashboard.example.com` for session management
+
+## Breaking Changes
+
+- Initial setup requires new environment variable `SESSION_SECRET`
+
+</Update>
+
+## Upgrading to the Latest Version
+
+Follow these steps to upgrade your CASSIE MARIE | AUTHOR installation.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+  Create a backup of your current configuration and sessions.
+
+  ```bash
+  cp -r ./config ./config-backup
+  cp -r ./sessions ./sessions-backup
+  ```
+
+  </Step>
+  <Step title="Update Package" icon="download">
+    
+    <Tabs>
+      <Tab title="npm" icon="package">
+      ```bash
+      npm install cassie-marie-author@latest
+      ```
+      </Tab>
+      <Tab title="yarn" icon="package">
+      ```bash
+      yarn add cassie-marie-author@latest
+      ```
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+
+    Apply any database migrations.
+
+    <CodeGroup tabs="PostgreSQL,MySQL">
+    ```sql
+    -- PostgreSQL
+    npm run migrate:up
+    ```
+    ```sql
+    -- MySQL
+    npm run migrate:mysql
+    ```
+    </CodeGroup>
+
+  </Step>
+  <Step title="Restart Server" icon="refresh-cw">
+
+    Restart your application server.
+
+    ```bash
+    npm run start:prod
+    ```
+
+  </Step>
+</Steps>
+
+<Callout kind="alert" title="Breaking Changes">
+Review the `v1.0.0` breaking changes if upgrading from an earlier version. Update your `SESSION_SECRET` environment variable.
+</Callout>
+
+## Upcoming Changes
+
+<Columns cols={3}>
+  <Card title="v1.3.0" icon="zap" href="#">
+    Real-time collaboration in sessions.
+  </Card>
+  <Card title="API Enhancements" icon="code" href="#">
+    New endpoints for session analytics.
+  </Card>
+  <Card title="Mobile App" icon="smartphone" href="#">
+    Native iOS and Android support.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+
+For complex upgrades, check the full migration guide.
+
+| From Version | Key Steps | Potential Issues |
+|--------------|-----------|------------------|
+| v1.0.x      | Update deps, run migrations | Token refresh |
+| v1.1.x      | Backup sessions, restart | None major     |
+
+</Expandable>

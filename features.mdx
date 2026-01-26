@@ -1,0 +1,159 @@
+---
+title: Core Features and Use Cases
+description: Explore the main capabilities of CASSIE MARIE | AUTHOR, including document organization, collaboration tools, and customization options. See real-world examples for authors and teams.
+---
+
+## Overview
+
+CASSIE MARIE | AUTHOR provides a comprehensive documentation platform tailored for authors and teams. You can structure your content hierarchically, collaborate securely, search efficiently, and customize the appearance to match your brand. These features enable seamless management of writing projects, from novels to technical guides.
+
+<Callout kind="info">
+Use these core capabilities to organize your documentation space effectively. Start with folders for high-level structure, then leverage sharing for team input.
+</Callout>
+
+## Key Features
+
+Discover the foundational tools that power your workflow.
+
+<Columns cols={2}>
+  <Card title="Document Structuring" icon="folder" href="#document-structuring">
+    Organize content with nested folders and MDX pages for intuitive navigation.
+  </Card>
+  <Card title="Collaboration Tools" icon="users" href="#collaboration">
+    Share documents with granular permissions and real-time edits.
+  </Card>
+  <Card title="Search and Version Control" icon="search" href="#search-version">
+    Find content instantly and track changes with built-in history.
+  </Card>
+  <Card title="Customization" icon="palette" href="#customization">
+    Apply your brand colors and themes effortlessly.
+  </Card>
+</Columns>
+
+## Document Structuring and Folders
+
+Create a logical hierarchy for your projects using folders and pages.
+
+### Organizing Content
+
+You define folders to group related documents. For example, structure a book project as:
+
+```
+projects/
+  my-novel/
+    chapters/
+      chapter-1.mdx
+      chapter-2.mdx
+    notes/
+      research.mdx
+```
+
+This setup mirrors your mental model, making navigation straightforward.
+
+<Expandable title="Advanced Folder Tips" default-open="false">
+
+  - Use descriptive names without special characters.
+  - Nest up to 5 levels deep for complex projects.
+  - Frontmatter in pages controls visibility and order.
+
+</Expandable>
+
+## Collaboration and Sharing Permissions
+
+Invite team members to contribute while controlling access.
+
+<Tabs>
+  <Tab title="Editor Permissions" icon="edit-3">
+    Editors can modify content and add comments.
+    
+    ```javascript
+    // Example sharing config
+    const permissions = {
+      role: "editor",
+      canEdit: true,
+      canShare: false
+    };
+    ```
+  </Tab>
+  <Tab title="Viewer Permissions" icon="eye">
+    Viewers access read-only versions.
+    
+    ```javascript
+    // Viewer setup
+    const permissions = {
+      role: "viewer",
+      canEdit: false,
+      canDownload: true
+    };
+    ```
+  </Tab>
+</Tabs>
+
+| Permission Level | Edit Content | Share Links | Download |
+|------------------|--------------|-------------|----------|
+| Owner            | Yes         | Yes        | Yes     |
+| Editor           | Yes         | No         | Yes     |
+| Viewer           | No          | No         | Yes     |
+
+## Search and Version Control
+
+Locate documents quickly and revert changes as needed.
+
+You perform full-text searches across all content. Version control tracks edits automatically, allowing rollbacks.
+
+<Steps>
+  <Step title="Search Documents" icon="search">
+    Enter keywords in the global search bar to find matches instantly.
+  </Step>
+  <Step title="View History" icon="clock">
+    Click the history icon on any page to see change logs.
+  </Step>
+  <Step title="Revert Changes" icon="undo">
+    Select a previous version and restore it with one click.
+  </Step>
+</Steps>
+
+## Customization with Brand Colors
+
+Tailor the interface to your style using simple configuration.
+
+<CodeGroup tabs="JSON,TypeScript">
+  ```json
+  {
+    "theme": {
+      "primaryColor": "#0969DA",
+      "secondaryColor": "#ffffff"
+    }
+  }
+  ```
+  ```typescript
+  const config = {
+    theme: {
+      primaryColor: '#0969DA',
+      secondaryColor: '#ffffff'
+    }
+  };
+  ```
+</CodeGroup>
+
+Apply changes via the settings panel. Your brand color `{#0969DA}` updates buttons, headers, and accents site-wide.
+
+<Callout kind="tip">
+Test customizations in preview mode before publishing to ensure consistency across devices.
+</Callout>
+
+## Real-World Use Cases
+
+<Columns cols={3}>
+  <Card title="Solo Author" icon="book-open">
+    Structure novels with chapter folders and track revisions solo.
+  </Card>
+  <Card title="Writing Team" icon="users">
+    Share drafts with editors using role-based permissions.
+  </Card>
+  <Card title="Tech Docs" icon="code">
+    Organize API references with search and version history.
+  </Card>
+</Columns>
+
+These features scale from individual projects to collaborative efforts, empowering you to focus on writing.

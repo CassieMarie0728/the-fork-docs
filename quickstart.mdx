@@ -1,0 +1,135 @@
+---
+title: Getting Started with CASSIE MARIE | AUTHOR
+description: Set up your account and create your first documentation space in minutes. Follow step-by-step instructions to begin organizing your projects.
+---
+
+## Prerequisites
+
+<Callout kind="info" title="Before You Begin">
+Ensure you have:
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
+- An email address for account verification
+- Optional: GitHub account for repository integration
+</Callout>
+
+## Create Your Account
+
+Follow these steps to register and log in to CASSIE MARIE | AUTHOR.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.example.com` and click **Sign Up**.
+  </Step>
+  <Step title="Enter Your Details" icon="user">
+    Provide your email, create a password, and complete the CAPTCHA.
+    
+    <Callout kind="tip">
+      Use a strong password with at least 12 characters, including uppercase, lowercase, numbers, and symbols.
+    </Callout>
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link and click it to activate your account.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard, enter your credentials, and access your workspace.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Space
+
+Once logged in, set up a new space for your project.
+
+<Steps>
+  <Step title="Click New Space" icon="plus">
+    From the dashboard, select **New Documentation Space**.
+  </Step>
+  <Step title="Configure Space" icon="settings">
+    Enter a name like `My Project Docs`, select visibility (Public or Private), and choose a template if available.
+  </Step>
+  <Step title="Save and Open" icon="save">
+    Click **Create**. Your space opens with a default structure.
+  </Step>
+</Steps>
+
+## Upload Initial Documents
+
+Add your first files using one of these methods.
+
+<Tabs>
+  <Tab title="Web Upload" icon="upload">
+    Drag and drop Markdown, PDF, or image files directly into the editor.
+    
+    <Image
+      src="https://via.placeholder.com/800x400?text=Web+Upload+Interface"
+      alt="Web upload interface showing drag-and-drop area"
+      width="800"
+      height="400"
+    />
+  </Tab>
+  <Tab title="GitHub Sync" icon="github">
+    Connect your repo:
+    
+````bash
+# Add repo URL in settings
+https://github.com/your-username/the-fork
+````
+    
+    Sync pulls MDX files automatically.
+  </Tab>
+  <Tab title="CLI Upload" icon="terminal">
+    Install the CLI and upload:
+    
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install -g cassie-cli
+````
+````bash
+yarn global add cassie-cli
+````
+    </CodeGroup>
+    
+````bash
+cassie-cli login --email your@email.com
+cassie-cli upload ./docs --space "My Project Docs"
+````
+  </Tab>
+</Tabs>
+
+## Basic Interface Tour
+
+Explore the main areas:
+
+<Columns cols={3}>
+  <Card title="Editor" icon="edit-3">
+    Write and preview MDX in real-time.
+  </Card>
+  <Card title="File Tree" icon="git-branch">
+    Navigate pages, folders, and assets.
+  </Card>
+  <Card title="Publish" icon="globe">
+    Deploy changes with one click.
+  </Card>
+</Columns>
+
+## Next Steps
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+- **Login fails?** Clear browser cache or try incognito mode.
+- **Upload errors?** Check file size limits (`<10MB` per file).
+- **Sync issues?** Verify GitHub permissions.
+</Expandable>
+
+Dive deeper with these guides:
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your spaces with API keys.
+  </Card>
+  <Card title="Advanced Features" icon="zap" href="/introduction">
+    Customize themes and integrations.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+Congratulations! You've set up your first documentation space. Start editing pages now.
+</Callout>
